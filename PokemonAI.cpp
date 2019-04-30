@@ -4,8 +4,9 @@
 int main()
 {
 	//Read the file first
+	ParticleSwarm::ReadFile("teaminfo1.csv");
 	//Store it in Swarm
-	vector<int> core{12, 45};
+	vector<int> core{465, 658};
 	auto test = ParticleSwarm::getTopRules(core, 10);
 	for (auto itr : test)
 	{

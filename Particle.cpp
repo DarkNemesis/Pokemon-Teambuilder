@@ -90,8 +90,10 @@ tCount Particle::findCount()
 			bool flag = true;
 			for (int j = 0; j < mTail.size(); j++)
 			{
-				while (ParticleSwarm::mTeams[i][k] < mTail[j])
+				while (k < 6 && ParticleSwarm::mTeams[i][k] < mTail[j])
 					k++;
+				if (k >= 6)
+					break;
 				if (ParticleSwarm::mTeams[i][k] > mTail[j])
 				{
 					flag = false;

@@ -3,7 +3,7 @@
 #include <chrono>
 
 default_random_engine Swarm::mRNGEngine(std::chrono::system_clock::now().time_since_epoch().count());
-uniform_int_distribution<unsigned int> Swarm::mRNGRange(0, 700);
+uniform_int_distribution<unsigned int> Swarm::mRNGRange(1, 801);
 
 unsigned int Swarm::mSize = 250;
 
