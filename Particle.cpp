@@ -315,7 +315,7 @@ void Particle::computeVelocity()
 
 	auto a0 = (0.5f + RNG / 2.0f) * mVelocity;
 
-	auto swarmVelocity = 0.79445 * (a1 + a2 + a3);
+	auto swarmVelocity = 0.1 * (a1 + a2 + a3);
 	mVelocity = a0 + swarmVelocity;
 
 }

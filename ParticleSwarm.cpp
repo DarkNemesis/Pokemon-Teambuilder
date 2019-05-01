@@ -8,7 +8,7 @@ vector<vector<int>> ParticleSwarm::getTopRules(vector<int> head, unsigned int co
 {
 	Swarm mSwarm(head);
 	
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 500; i++)
 		mSwarm.Update();
 
 	return mSwarm.GetTopRules(count);
