@@ -315,7 +315,7 @@ void Particle::computeVelocity()
 
 	auto a0 = (0.5f + RNG / 2.0f) * mVelocity;
 
-	auto swarmVelocity = 1.49445 * (a1 + a2 + a3);
+	auto swarmVelocity = 0.79445 * (a1 + a2 + a3);
 	mVelocity = a0 + swarmVelocity;
 
 }
@@ -325,6 +325,11 @@ void Particle::move()
 	for (int i = 0; i < mTail.size(); i++)
 	{
 		mTail[i] = mTail[i] + std::round(mVelocity[i]);
+
+		while (mTail[i] < 1)
+			mTail[i] = mTail[i] + 801;
+		while (mTail[i] > 801)
+			mTail[i] = mTail[i] - 801;
 	}
 }
 
