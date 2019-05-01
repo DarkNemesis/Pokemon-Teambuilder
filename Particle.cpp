@@ -60,8 +60,12 @@ tCount Particle::findCount()
 			bool flag = true;
 			for (int j = 0; j < mHead.size(); j++)
 			{
-				while (ParticleSwarm::mTeams[i][k] < mHead[j])
+				while (k < 6 && ParticleSwarm::mTeams[i][k] < mHead[j])
 					k++;
+
+				if (k >= 6)
+					break;
+
 				if (ParticleSwarm::mTeams[i][k] > mHead[j])
 				{
 					flag = false;
@@ -311,7 +315,9 @@ void Particle::computeVelocity()
 
 	auto a0 = (0.5f + RNG / 2.0f) * mVelocity;
 
-	mVelocity = a0 + 1.49445 * (a1 + a2 + a3);
+	auto swarmVelocity = 1.49445 * (a1 + a2 + a3);
+	mVelocity = a0 + swarmVelocity;
+
 }
 
 void Particle::move()
@@ -352,7 +358,7 @@ vector<float> operator+(vector<float> a, vector<float> b)
 	vector<float> p;
 	for (int i = 0; i < a.size(); i++)
 	{
-		p.push_back(a[i] * b[i]);
+		p.push_back(a[i] + b[i]);
 	}
 	return p;
 }
